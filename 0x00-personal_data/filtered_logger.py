@@ -13,5 +13,4 @@ def filter_datum(fields: List[str], redaction: str,
                  message: str, separator: str) -> str:
     '''Heloo wthern f mdf d'''
     pattern: str = '|'.join([f'(?<={st}=).*?(?={separator})' for st in fields])
-    print(pattern)
     return re.sub(pattern, redaction, message)
