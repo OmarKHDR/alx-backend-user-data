@@ -9,7 +9,7 @@ import re
 from typing import List, Any
 
 
-def filter_datum(fields: List, redaction: str,
+def filter_datum(fields: List[str], redaction: str,
                  message: str, separator: str) -> str:
     '''Heloo wthern f mdf d'''
     pattern: str = '|'.join([f'(?<={st}=).*?(?={separator})' for st in fields])
