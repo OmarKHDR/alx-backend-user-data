@@ -21,6 +21,8 @@ if os.environ['AUTH_TYPE'] == 'auth':
 
 @app.before_request
 def before_req():
+    """ THs is nym mss
+    """
     if auth == None:
         return
     if auth.require_auth(request.path, excluded):
