@@ -25,7 +25,10 @@ class Auth:
     def authorization_header(self, request=None) -> str:
         """ THis is an auth class
         """
-        return None
+        if request is None or not hasattr(request, 'Authorization'):
+            return None
+        else:
+            return request.Authorization
 
     def current_user(self, request=None) -> user:
         """ THis is an auth class
