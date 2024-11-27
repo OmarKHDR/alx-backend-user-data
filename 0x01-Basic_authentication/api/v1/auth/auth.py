@@ -15,7 +15,7 @@ class Auth:
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """ THis is an auth class
         """
-        if path is None or excluded_paths is None:
+        if (path is None) or (excluded_paths is None):
             return True
         if path.strip('/') in map(lambda st: st.strip('/'), excluded_paths):
             return False
@@ -25,10 +25,10 @@ class Auth:
     def authorization_header(self, request=None) -> str:
         """ THis is an auth class
         """
-        if request is None or not hasattr(request, 'Authorization'):
+        if request is None or not request.headers.get('Authorization'):
             return None
         else:
-            return request.Authorization
+            return request.headers.get('Authorization')
 
     def current_user(self, request=None) -> user:
         """ THis is an auth class
