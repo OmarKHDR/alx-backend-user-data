@@ -10,6 +10,8 @@ user = TypeVar('User')
 
 
 class Auth:
+    """ THis nuts
+    """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         return False
 
