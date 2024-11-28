@@ -19,7 +19,7 @@ excluded = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
 
 AUTH_TYPE = os.getenv('AUTH_TYPE')
 if AUTH_TYPE == 'BasicAuth':
-    auth = Basic_Auth()
+    auth = BasicAuth()
 elif AUTH_TYPE == 'Auth':
     auth = Auth()
 
