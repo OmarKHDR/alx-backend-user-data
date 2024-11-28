@@ -45,4 +45,4 @@ class BasicAuth(Auth):
         if len(arr) == 1:
             return (None, None)
         else:
-            return (arr[0], arr[1:].join(':'))
+            return (arr[0], ':'.join(arr[1:]))
