@@ -13,11 +13,8 @@ class BasicAuth(Auth):
         """
         if authorization_header is None or\
                 not isinstance(authorization_header, str):
-            print("first")
             return None
         auth_word = authorization_header.split()
         if len(auth_word) != 2 or auth_word['0'] != 'Basic':
-            print("secodn")
             return None
-        print("auth_word")
-        return auth_word[1]
+        return authorization_header.strip("Basic ")
