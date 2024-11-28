@@ -15,6 +15,7 @@ class BasicAuth(Auth):
                 not isinstance(authorization_header, str):
             return None
         auth_word = authorization_header.split()
-        if len(auth_word) != 2 or auth_word['0'] != 'Basic':
+        if len(auth_word) != 2 or auth_word[0] != 'Basic':
             return None
         return authorization_header.strip("Basic ")
+
