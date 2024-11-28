@@ -4,7 +4,7 @@
 from api.v1.auth.auth import Auth
 
 
-class Basic_Auth(Auth):
+class BasicAuth(Auth):
     """ This wasnt documented
     """
     pass
