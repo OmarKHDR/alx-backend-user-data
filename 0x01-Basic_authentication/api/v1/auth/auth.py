@@ -3,6 +3,7 @@
 """
 from flask import request
 from typing import List, TypeVar
+import re
 # from models.user import User
 
 
@@ -17,10 +18,11 @@ class Auth:
         """
         if (path is None) or (excluded_paths is None):
             return True
-        if path.strip('/') in map(lambda st: st.strip('/'), excluded_paths):
+        exc_pathes = map(lambda st: st.strip('/'), excluded_paths)
+        myPath = path.strip('/')
+        if myPath in exc_pathes:
             return False
-        else:
-            return True
+        return True
 
     def authorization_header(self, request=None) -> str:
         """ THis is an auth class

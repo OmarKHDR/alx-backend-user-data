@@ -3,8 +3,10 @@
 """
 from api.v1.auth.auth import Auth
 import base64
-from typing import Tuple
+from typing import Tuple, TypeVar
 
+
+U = TypeVar('User')
 
 class BasicAuth(Auth):
     """ This wasnt documented
@@ -46,3 +48,11 @@ class BasicAuth(Auth):
             return (None, None)
         else:
             return (arr[0], ':'.join(arr[1:]))
+
+    def user_object_from_credentials(self, user_email: str, user_pwd: str) -> U:
+        """ This is prefinal
+        """
+        if user_email is None or not isinstance(user_email, str):
+            return None
+        if user_pwd is None or not isinstance(user_pwd, str):
+            return None

@@ -12,6 +12,8 @@ TIMESTAMP_FORMAT = "%Y-%m-%dT%H:%M:%S"
 DATA = {}
 
 
+BaseType = TypeVar('Base')
+
 class Base():
     """ Base class
     """
@@ -35,7 +37,7 @@ class Base():
         else:
             self.updated_at = datetime.utcnow()
 
-    def __eq__(self, other: TypeVar('Base')) -> bool:
+    def __eq__(self, other: BaseType) -> bool:
         """ Equality
         """
         if type(self) != type(other):
@@ -109,20 +111,20 @@ class Base():
         return len(DATA[s_class].keys())
 
     @classmethod
-    def all(cls) -> Iterable[TypeVar('Base')]:
+    def all(cls) -> Iterable[BaseType]:
         """ Return all objects
         """
         return cls.search()
 
     @classmethod
-    def get(cls, id: str) -> TypeVar('Base'):
+    def get(cls, id: str) -> BaseType:
         """ Return one object by ID
         """
         s_class = cls.__name__
         return DATA[s_class].get(id)
 
     @classmethod
-    def search(cls, attributes: dict = {}) -> List[TypeVar('Base')]:
+    def search(cls, attributes: dict = {}) -> List[BaseType]:
         """ Search all objects with matching attributes
         """
         s_class = cls.__name__
