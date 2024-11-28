@@ -18,4 +18,3 @@ class BasicAuth(Auth):
         if len(auth_word) != 2 or auth_word[0] != 'Basic':
             return None
         return authorization_header.strip("Basic ")
-
