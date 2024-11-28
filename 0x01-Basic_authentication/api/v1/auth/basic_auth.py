@@ -19,4 +19,5 @@ class BasicAuth(Auth):
         if len(auth_word) != 2 or auth_word['0'] != 'Basic':
             print("secodn")
             return None
+        print(auth_word[1])
         return auth_word[1]
